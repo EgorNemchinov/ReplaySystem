@@ -24,4 +24,8 @@ public class ReplayBall extends Game {
         super.dispose();
         AssetLoader.dispose();
     }
+
+    // TODO: 05.10.16 add another ball and ability to switch between'em
+    // TODO: 05.10.16 add undo & redo
+    // TODO: 05.10.16 record commands
 }
