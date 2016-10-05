@@ -9,20 +9,37 @@ import com.jacktheogre.replay.Objects.GameActor;
  */
 public class MoveCommand extends Command {
 
+    private int startX, startY;
     private int destinX, destinY;
-    private float velX, velY;
 
     public MoveCommand(int x, int y) {
         destinX = x;
         destinY = y;
+        executed = false;
     }
 
     @Override
-    public void execute(GameActor actor) {
-//        actor.setPosition(destinX, destinY);
-        actor.setVelocity(velX, velY);
+    public boolean execute(GameActor actor) {
+        if(executed)
+            return false;
+        this.actor = actor;
+        startX = (int) actor.getX();
+        startY = (int) actor.getY();
         actor.setDestination(destinX, destinY);
+        executed = true;
+        Gdx.app.log("MoveCommand", "Done. Moving to " + destinX+", " + destinY + ")");
+        return true;
     }
 
+    @Override
+    public void undo() {
+        actor.setDestination(startX, startY);
+        Gdx.app.log("MoveCommand", "Undone. Moving to " + startX+", " + startY + ")");
+    }
 
+    @Override
+    public void redo() {
+        actor.setDestination(destinX, destinY);
+        Gdx.app.log("MoveCommand", "Redone. Moving to " + destinX+", " + destinX + ")");
+    }
 }
