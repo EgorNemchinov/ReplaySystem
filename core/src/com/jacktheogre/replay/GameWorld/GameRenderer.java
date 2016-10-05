@@ -34,8 +34,10 @@ public class GameRenderer {
 
         spriteBatch.setProjectionMatrix(camera.combined);
         spriteBatch.begin();
-        spriteBatch.draw(AssetLoader.texture, world.getBall().getX(), world.getBall().getY(),
-                world.getBall().getWidth(), world.getBall().getHeight());
+        spriteBatch.draw(AssetLoader.ball, world.getBall().getX(), world.getBall().getY(),
+               world.getBall().getWidth(), world.getBall().getHeight());
+        spriteBatch.draw(AssetLoader.box, world.getBox().getX(), world.getBox().getY(),
+                world.getBox().getWidth(), world.getBox().getHeight());
 
         spriteBatch.end();
 

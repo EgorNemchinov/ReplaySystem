@@ -1,5 +1,6 @@
 package com.jacktheogre.replay;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.jacktheogre.replay.Commands.MoveCommand;
 import com.jacktheogre.replay.GameWorld.GameWorld;
@@ -20,13 +21,14 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        gameWorld.addCommand(new MoveCommand(screenX - gameWorld.getBall().getWidth() / 2, screenY - gameWorld.getBall().getHeight() / 2));
+        gameWorld.addCommand(new MoveCommand(screenX - gameWorld.getActor().getWidth() / 2, screenY - gameWorld.getActor().getHeight() / 2));
         return true;
     }
 
     @Override
     public boolean keyDown(int keycode) {
-        return false;
+        if(keycode == Input.Keys.SPACE) gameWorld.changeActor();
+        return true;
     }
 
     @Override

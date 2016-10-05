@@ -7,13 +7,15 @@ import com.badlogic.gdx.graphics.Texture;
  */
 public class AssetLoader {
 
-    public static Texture texture;
+    public static Texture ball, box;
 
     public static void load() {
-        texture = new Texture("circle.png");
+        ball = new Texture("circle.png");
+        box = new Texture("rect.png");
     }
 
     public static void dispose() {
-        texture.dispose();
+        box.dispose();
+        ball.dispose();
     }
 }

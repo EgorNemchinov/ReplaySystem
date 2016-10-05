@@ -22,7 +22,6 @@ public class MoveCommand extends Command {
 //        actor.setPosition(destinX, destinY);
         actor.setVelocity(velX, velY);
         actor.setDestination(destinX, destinY);
-        Gdx.app.log("MoveCommand", "Moved to (" + destinX + ", " + destinY + ").");
     }
 
 
