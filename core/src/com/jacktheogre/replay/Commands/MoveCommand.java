@@ -40,6 +40,12 @@ public class MoveCommand extends Command {
     @Override
     public void redo() {
         actor.setDestination(destinX, destinY);
-        Gdx.app.log("MoveCommand", "Redone. Moving to " + destinX+", " + destinX + ")");
+        Gdx.app.log("MoveCommand", "Redone. Moving to " + destinX+", " + destinY + ")");
     }
+
+    @Override
+    public String toString() {
+        return "MoveCommand from (" + startX+", " + startY+") to (" + destinX + ", " + destinY+"). Actor is " + actor;
+    }
+
 }

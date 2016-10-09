@@ -70,6 +70,13 @@ public class GameActor extends Entity {
         newVelocity = true;
     }
 
+    @Override
+    public String toString() {
+        return "actor";
+    }
+
+
+
     private int sideX() {
         if(Math.abs(destinX - getX()) < FAULT) return 0;
         return destinX < getX() ? -1 : 1;

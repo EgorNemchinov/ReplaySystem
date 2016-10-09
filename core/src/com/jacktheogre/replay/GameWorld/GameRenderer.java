@@ -18,7 +18,7 @@ public class GameRenderer {
     private GameWorld world;
     private OrthographicCamera camera;
     SpriteBatch spriteBatch;
-
+    private int time;
 
     public GameRenderer(GameWorld world, int gameHeight) {
         this.world = world;
@@ -32,13 +32,14 @@ public class GameRenderer {
         Gdx.gl.glClearColor(10/255.0f, 15/255.0f, 230/255.0f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Fills the screen with the selected color
 
+        time = (int) (ReplayBall.GAME_DURATION - Math.ceil(world.getRunTime()));
         spriteBatch.setProjectionMatrix(camera.combined);
         spriteBatch.begin();
         spriteBatch.draw(AssetLoader.ball, world.getBall().getX(), world.getBall().getY(),
                world.getBall().getWidth(), world.getBall().getHeight());
         spriteBatch.draw(AssetLoader.box, world.getBox().getX(), world.getBox().getY(),
                 world.getBox().getWidth(), world.getBox().getHeight());
-
+        AssetLoader.font.draw(spriteBatch, "" + time, ReplayBall.WIDTH - 40 , 5);
         spriteBatch.end();
 
     }

@@ -12,6 +12,7 @@ import com.jacktheogre.replay.screens.MainMenuScreen;
 public class ReplayBall extends Game {
 	public static int WIDTH = 400;
 	public static int HEIGHT = 240;
+    public static int GAME_DURATION = 5;
 
 	@Override
 	public void create () {
@@ -25,6 +26,6 @@ public class ReplayBall extends Game {
         AssetLoader.dispose();
     }
 
-    // TODO: 05.10.16 record commands
     // TODO: 05.10.16 add buttons for changecontrol, undo and redo km
+    // TODO: 08.10.16 add screens. clear everything when playing again
 }

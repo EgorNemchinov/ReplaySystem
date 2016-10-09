@@ -15,4 +15,9 @@ public class Box extends GameActor{
         height = HEIGHT;
         max_speed = SPEED;
     }
+
+    @Override
+    public String toString() {
+        return "bo";
+    }
 }

@@ -20,4 +20,9 @@ public class Ball extends GameActor {
     public void update(float dt) {
         super.update(dt);
     }
+
+    @Override
+    public String toString() {
+        return "ba";
+    }
 }
